@@ -293,6 +293,9 @@ class Planner:
         self.case = case
         self.geo = geo
         self.K = case.count
+        # small boards are cheap to search: widen the beam there
+        if geo.R <= 5:
+            self.BEAM, self.NLINES, self.FINAL = 24, 8, 4
         self.pmask = sum(1 << geo.idx[c] for c in case.matter)
         self.smask = sum(1 << geo.idx[c] for c in case.skirt)
         self.lines = [{} for _ in range(3)]
