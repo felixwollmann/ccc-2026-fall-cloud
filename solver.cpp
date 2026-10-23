@@ -937,6 +937,8 @@ int main(int argc, char** argv) {
         else if (a == "--final") prm.final_ = prm.smallFinal = stoi(val());
         else if (a == "--scale") prm.scale = stod(val());
         else if (a == "--no-ordered") prm.ordered = false;
+        else if (a == "--hmax") prm.hmax = stoi(val());
+        else if (a == "--final-ordered") prm.finalOrdered = stoi(val());
         else input = a;
     }
     if (input.empty()) { fprintf(stderr, "usage: solver_cpp <input> [-o dir] [-j n] [--only k]\n"); return 1; }
